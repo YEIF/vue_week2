@@ -4,12 +4,12 @@ import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.26/vue
 const app = createApp({
   data () {
     return {
-      temp: {},
+      tempProduct: {},
       apiUrl: 'https://vue3-course-api.hexschool.io',
       apiPath: 'clothes',
-      config: {
-        headers: { Authorization: '' }
-      },
+      // config: {
+      //   headers: { Authorization: '' }
+      // },
       products: []
     }
   },
@@ -43,11 +43,13 @@ const app = createApp({
           console.dir(err.data)
         })
     },
+    openProduct(item){
+      this.tempProduct=item
+    },
     logout () {
       const url = `${this.apiUrl}/v2/logout`
       axios.post(url)
         .then((res) => {
-          console.log(res)
           Cookies.remove('hexToken')
           alert('登出成功')
           window.location = 'index.html'
