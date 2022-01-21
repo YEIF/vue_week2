@@ -20,7 +20,7 @@ const app = createApp({
       axios.post(url)
         .then((res) => {
           console.log(res)
-          if (res.data.success === false) {
+          if (!res.data.success) {
             alert('請重新登入')
             window.location = 'index.html'
           } else {

@@ -13,8 +13,6 @@ createApp({
   methods: {
     login () {
       const api = 'https://vue3-course-api.hexschool.io/v2/admin/signin'
-      // const username = this.username
-      // console.log(username)
       axios.post(api, this.user).then((response) => {
         const { token, expired } = response.data
         // 寫入 cookie token
